@@ -122,16 +122,16 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER = "animit.AnimitUser"
-LOGIN_URL = '/animit/login'
-LOGIN_REDIRECT_URL = '/animit/home'
-LOGOUT_REDIRECT_URL = '/animit/login'
+#AUTH_USER = "animit.AnimitUser"
+#LOGIN_URL = '/animit/login'
+#LOGIN_REDIRECT_URL = '/animit/home'
+#LOGOUT_REDIRECT_URL = '/animit/login'
 
 
 # ユーザーを認証するバックエンドクラス
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'animit.backends.AnimitBackend',    
+    #'animit.backends.AnimitBackend',    
 ]
 
 
