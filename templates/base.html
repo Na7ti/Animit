@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <title>{% block title %}Animit{% endblock %}</title>
+   <link rel="stylesheet" href='{% static "admin/css/destyle.css" %}'/>
+   <link rel="stylesheet" href='{% static "admin/css/style.css" %}'/>
+</head>
+<body>
+   <header>
+       <!-- Header content -->
+       <div class="header-space">
+            <h1>動物専用SNS Animitへようこそ</h1>
+       </div>
+   </header>
+
+   <main>
+       {% block content %}
+       <!-- Default content -->
+       {% endblock %}
+   </main>
+
+   <footer>
+       <!-- Footer content -->
+   </footer>
+</body>
+</html>
