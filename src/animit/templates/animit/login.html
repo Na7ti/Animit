@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ログイン</h1>
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'animit:login' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {% for field in form%}
+                {%if field.name in fields%}
+                    <tr>
+                        <th>{{field.name}}<th/>
+                        <th>{{field}}</th>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

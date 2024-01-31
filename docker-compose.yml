@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+
+  db:
+    image: postgres:13.1
+    container_name: postgres
+    # データの保存場所をローカルのdb/dbdataに保存
+    volumes:
+      - ./db/dbdata:/var/lib/postgresql/data
+    expose:
+      - '5432'
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=myappdb
+
+  django:
+    build: ./django
+    image: django
+    container_name: django
+    expose:
+      - '8080'
+    volumes:
+      - ./src:/code
+      - ./django/uwsgi:/etc/uwsgi/
+    depends_on:
+      - db
+
+  web:
+    image: nginx:1.18.0
+    container_name: nginx
+    volumes:
+      - ./web/conf:/etc/nginx/conf.d
+      - ./web/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./src/animit/static:/static
+    ports:
+      - '80:80'
+    depends_on:
+      - django
+

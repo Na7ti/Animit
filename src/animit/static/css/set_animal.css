@@ -1,0 +1,66 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+.container {
+    width: 300px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+h1 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+}
+p {
+    font-size: 1em;
+    color: #666;
+    text-align: center;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#suggestion-list {
+    position: absolute;
+    border: 1px solid #ddd;
+    border-top: none;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#suggestion-list li {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+#suggestion-list li:hover {
+    background-color: #f0f0f0;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px; /* 追加 */
+}
+button:hover {
+    background-color: #0056b3;
+}

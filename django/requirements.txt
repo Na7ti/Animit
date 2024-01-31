@@ -1,0 +1,5 @@
+Django==3.1.4
+psycopg2==2.8.6
+uwsgi==2.0.19.1
+django-allauth
+jaconv

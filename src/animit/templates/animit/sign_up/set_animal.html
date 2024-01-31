@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>動物検索</title>
+    <link rel="stylesheet" href="{% static 'css/set_animal.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>プロフィール設定</h1>
+        <p>動物図鑑SNSへようこそ</p>
+        <p>動物を設定してください</p>
+        <input type="text" id="animal-search" placeholder="動物選択">
+        <ul id="suggestion-list"></ul>
+        <button id="next-button">次へ</button>
+    </div>
+
+    <script>
+
+
+        /* $(document).ready() と同じ*/
+        $(function() {
+            /* ($animal-search) IDを持つHTML要素(検索入力欄)に対して */
+            /* ユーザが入力を行ったときにイベントを発火するハンドラーの設定*/
+            $("#animal-search").on('input', function() {
+                /* 現在の入力値(this)の値(ユーザが入力したテキスト)を取得*/
+                /* queryという定数に保存*/
+                const query = $(this).val();
+                /* もしユーザが何も入力していなければ(queryが空の文字列であれば)*/
+                /* 検索候補を表示するリスト(#suggestion-list)を空にし、関数の実行をここで停止*/
+                if (!query) {
+                    $("#suggestion-list").empty();
+                    return;
+                }
+                /* jQueryのajaxメソッドを呼び出し、非同期HTTP(Ajax)リクエストをする*/
+                $.ajax({
+
+                    headers: {"X-CSRFToken": Cookies.get('csrftoken'),}, //csrf_tokenをヘッダーに設定
+                    /* リクエストを送信するURLを指定*/
+                    /* Djangoのビュー(search_animal)にマッピングされている(/sign_up_search_animal)というURL*/
+                    url: '{% url "animit:sign_up_set_animal" %}',
+                    type: "post",
+                    /* サーバに送信するデータを指定、termというキーでサーバに送信*/
+                    data: { 'term': query },
+                    /* サーバからの応答として期待するデータのタイプを(json)に設定*/
+                    dataType: 'json',
+                    /* リクエストが成功したときに実行される関数を指定*/
+                    /* サーバから返されたデータはこの関数の引数(data)に渡される*/
+
+                    success: function(data) {
+                        /* 検索候補を表示するリストを選択し、(suggestionList)という変数に保存*/
+                        let suggestionList = $("#suggestion-list");
+                        /* 検索候補リストを空にして、古い候補をクリアする*/
+                        suggestionList.empty();
+                        /* サーバからデータが実際に返されたかチェック*/
+                        /* 配列の長さが0より大きかったら*/
+                        if(data.length) {
+                            /* 動物の名前の配列をループ処理 各要素はitem*/
+                            data.forEach(function(item) {
+                                /* 新しい<li>要素を作成し、そのテキストにitem(動物の名前)を設定*/
+                                /* その<li>要素を検索候補リストに追加*/
+                                suggestionList.append($("<li>").text(item));
+                            });
+                        }
+                    }
+                });
+            });
+            /* ドキュメント全体にイベントハンドラを設定*/
+            /* 検索候補リストの<li>要素がクリックされたときに反応*/
+            $(document).on('click', '#suggestion-list li', function() {
+                /* クリックされた<li>要素のテキストを取得し、*/
+                /* 検索入力欄(#animal-search)の値として設定*/
+                $("#animal-search").val($(this).text());
+                /* 検索候補リストを再び空にする*/
+                $("#suggestion-list").empty();
+            });
+        });
+    </script>
+</body>
+</html>

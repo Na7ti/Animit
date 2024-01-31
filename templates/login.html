@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ {% if form.errors %}
+   <p>ログインIDとパスワードが一致しません。再度入力してください。</p>
+ {% endif %}
+
+ {% if next %}
+   {% if user.is_authenticated %}
+     <p>このアカウントはこのページにアクセスする権限がありません。適切なアカウントでログインしてください。</p>
+   {% else %}
+     <p>このページを表示するためにはログインが必要です。</p>
+   {% endif %}
+ {% endif %}
+
+ <form method="post" action="{% url 'login' %}">
+   {% csrf_token %}
+   <table>
+     <tr>
+       <td>{{ form.username.label_tag }}</td>
+       <td>{{ form.username }}</td>
+     </tr>
+     <tr>
+       <td>{{ form.password.label_tag }}</td>
+       <td>{{ form.password }}</td>
+     </tr>
+   </table>
+   <input type="submit" value="ログイン">
+   <input type="hidden" name="next" value="{{ next }}">
+ </form>
+
+ <p><a href="{% url 'register' %}">新規アカウントを作成</a></p>
+
+{% endblock %}
