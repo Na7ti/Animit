@@ -12,7 +12,7 @@ https://ite3-2022.slack.com/files/U03B17T2UCX/F06G7F7E4Q6/db.zip
 →root@(コンテナ名):/code#
 
 # データベースの反映
-```python manage.py makemigrations animit```
+```python manage.py makemigrations animit```  
 ```python manage.py migrate```
 
 # 変更を反映される方法
