@@ -20,7 +20,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'animit',
+    'common',
+    'sign_up',
+    'user_gate',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -111,7 +113,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'animit/static'),  
+    os.path.join(BASE_DIR, 'common/static'),  
 )
 
 # Default primary key field type

@@ -32,7 +32,7 @@ services:
     volumes:
       - ./web/conf:/etc/nginx/conf.d
       - ./web/uwsgi_params:/etc/nginx/uwsgi_params
-      - ./src/animit/static:/static
+      - ./src/common/static:/static
     ports:
       - '80:80'
     depends_on:
