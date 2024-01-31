@@ -1,5 +1,5 @@
 # dbは以下をAnimit直下に配置
-https://ite3-2022.slack.com/files/U03B17T2UCX/F06G7F7E4Q6/db.zip
+[dbデータをダウンロード](https://ite3-2022.slack.com/files/U03B17T2UCX/F06G7F7E4Q6/db.zip)
 
 # .gitkeepの削除
 ```rm db/dbdate/*/.gitkeep```
