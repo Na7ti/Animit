@@ -2,7 +2,7 @@
 https://ite3-2022.slack.com/files/U03B17T2UCX/F06G7F7E4Q6/db.zip
 
 # .gitkeepの削除
-'''rm db/dbdate/*/.gitkeep'''
+```rm db/dbdate/*/.gitkeep```
 
 # 起動方法
 ```docker-compose up -d```
