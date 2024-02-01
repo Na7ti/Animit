@@ -111,20 +111,21 @@ slackから`db.zip`をダウンロード
 
 -    ### 静的ファイルの配置場所
         #### Djangoアプリの静的ファイルの配置場所
-          ```static
-          Animit/src/[アプリ名]/static/[アプリ名]/css
-          ```
-          ```static
-          Animit/src/[アプリ名]/static/[アプリ名]/img
-          ```
+     
+      ```static
+      Animit/src/[アプリ名]/static/[アプリ名]/css
+      ```
+      ```static
+      Animit/src/[アプリ名]/static/[アプリ名]/img
+      ```
     
         #### adminの静的ファイルの配置場所
-          ```static
-          Animit/src/static/admin/css
-          ```
-          ```static
-          Animit/src/static/admin/img
-          ```
+      ```static
+      Animit/src/static/admin/css
+      ```
+      ```static
+      Animit/src/static/admin/img
+      ```
 ```
 Animt/
 |
