@@ -29,7 +29,7 @@ services:
   web:
     image: nginx:1.18.0
     container_name: nginx
-    volumes:
+    volumes: 
       - ./web/conf:/etc/nginx/conf.d
       - ./web/uwsgi_params:/etc/nginx/uwsgi_params
       - ./src/common/static:/static
