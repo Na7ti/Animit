@@ -20,7 +20,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'animit',
+    'common',
+    'sign_up',
+    'user_gate',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -111,7 +113,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'animit/static'),  
+    os.path.join(BASE_DIR, 'common/static'),  
 )
 
 # Default primary key field type
@@ -120,16 +122,16 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER = "animit.AnimitUser"
-LOGIN_URL = '/animit/login'
-LOGIN_REDIRECT_URL = '/animit/home'
-LOGOUT_REDIRECT_URL = '/animit/login'
+#AUTH_USER = "animit.AnimitUser"
+#LOGIN_URL = '/animit/login'
+#LOGIN_REDIRECT_URL = '/animit/home'
+#LOGOUT_REDIRECT_URL = '/animit/login'
 
 
 # ユーザーを認証するバックエンドクラス
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'animit.backends.AnimitBackend',    
+    #'animit.backends.AnimitBackend',    
 ]
 
 
