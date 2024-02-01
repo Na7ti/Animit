@@ -16,12 +16,12 @@
 
     1. ローカルにリポジトリを新規作成する
     2. リモートリポジトリとローカルリポジトリの紐づけ
-    3. 最新のmainブランチをダウンロード
+    3. 最新の`develop`ブランチをダウンロード
 
     ```git
     git init
     git remote add origin https://github.com/NicoSoup/Animit
-    git clone origin main
+    git clone origin develop
     ```
 
     - #### cloneとpullの違い  
@@ -32,9 +32,11 @@
 - ### 作業はじめ
 
     1. リモートリポジトリの履歴をローカルに更新
-    2. リモートリポジトリのmainブランチから差分をダウンロード
+    2. [example]ブランチに移動(`-b`はブランチの作成)
+    3. リモートリポジトリの`develop`ブランチから差分をダウンロード
 
     ```git
+    git checkout -b [example]
     git fetch origin develop       //なくても良い
     git pull origin develop
     ```
@@ -78,11 +80,11 @@
 
         ![]()
 
+        [example]ブランチはマージ後削除する
+
 ## dbフォルダがない場合
 
-以下のリンクから
-[dbデータをダウンロード](https://google.com)  
-ダウンロードしてきたフォルダをプロジェクト直下に配置
+slackから`db.zip`をダウンロード
 
 - ### .gitkeepの削除
 
