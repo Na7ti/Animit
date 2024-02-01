@@ -103,6 +103,45 @@ slackから`db.zip`をダウンロード
     ```bash
     python manage.py migrate
     ```
+## Djangoにおける静的ファイル
+* Djangoはアプリの配下にあるstaticフォルダを自動で管理してくれる
+* STATICFILES_DIRSで指定するパスはアプリの配下にない(Djangoが自動で管理してくれない)staticフォルダを指す。今回は、admin用のstaticフォルダを管理する
+* デプロイする際は、静的ファイル(それぞれのstaticフォルダの配下にあるフォルダやファイル)をsetting.pyのSTATIC_ROOTで指定した場所にコピーし一箇所で管理する
+* 一箇所に静的ファイルをコピーする際に、ファイル名の重複が発生することを防ぐためにDjangoアプリの中に静的なファイルを作成する際は、そのDjangoアプリ名を持つフォルダの下にcssフォルダやimgフォルダを作成する  
+```
+Animt/
+|
+|--django/
+|--src/
+|    |
+|    |--project/
+|    |--sign_up/
+|    |    |
+|    |    |--static/(アプリ用のstaticフォルダ)
+|    |        |
+|    |        |--sign_up/
+|    |            |
+|    |            |--css/
+|    |            |--img/
+|    |--common/
+|    |--static/(admin用のstaticフォルダ)
+|    |    |
+|    |    |--css/
+|    |    |--img/
+|    |
+|    |--user_gate/
+|
+|--web/           
+```
+
+-    ### 静的ファイルの配置場所
+        #### Djangoアプリの静的ファイルの配置場所
+          ```Animit/src/[アプリ名]/static/[アプリ名]/css```
+          ```Animit/src/[アプリ名]/static/[アプリ名]/img```
+    
+        #### adminの静的ファイルの配置場所
+          ```Animit/src/static/admin/css```
+          ```Animit/src/static/admin/img```
 
 ## 簡易サーバーでのデバック
 
