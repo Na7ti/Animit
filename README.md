@@ -145,9 +145,10 @@ Animt/
 |    |--common/
 |    |--static/(admin用のstaticフォルダ)
 |    |    |
-|    |    |--css/
-|    |    |--img/
-|    |
+|    |    |--admin
+|    |    |    |--css/
+|    |    |    |--img/ 
+|    |    
 |    |--user_gate/
 |
 |--web/           
