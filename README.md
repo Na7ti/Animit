@@ -105,7 +105,7 @@ slackから`db.zip`をダウンロード
     ```
 ## Djangoにおける静的ファイル
 * Djangoはアプリの配下にあるstaticフォルダを自動で管理してくれる
-* STATICFILES_DIRSで指定するパスはアプリの配下にない(Djangoが自動で管理してくれない)staticフォルダを指す。今回は、admin用のstaticフォルダを管理する
+* setting.pyにおけるSTATICFILES_DIRSで指定するパスはアプリの配下にない(Djangoが自動で管理してくれない)staticフォルダを指す。今回は、admin用のstaticフォルダをパスを指定する
 * デプロイする際は、静的ファイル(それぞれのstaticフォルダの配下にあるフォルダやファイル)をsetting.pyのSTATIC_ROOTで指定した場所にコピーし一箇所で管理する
 * 一箇所に静的ファイルをコピーする際に、ファイル名の重複が発生することを防ぐためにDjangoアプリの中に静的なファイルを作成する際は、そのDjangoアプリ名を持つフォルダの下にcssフォルダやimgフォルダを作成する  
 ```
