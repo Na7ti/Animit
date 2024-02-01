@@ -136,7 +136,7 @@ Animt/
 |    |--project/
 |    |--sign_up/
 |    |    |
-|    |    |--static/(アプリ用のstaticフォルダ)
+|    |    |--static/(サインアップアプリ用のstaticフォルダ)
 |    |        |
 |    |        |--sign_up/
 |    |            |
