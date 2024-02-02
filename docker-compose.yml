@@ -32,9 +32,8 @@ services:
     volumes: 
       - ./web/conf:/etc/nginx/conf.d
       - ./web/uwsgi_params:/etc/nginx/uwsgi_params
-      - ./src/common/static:/static
+      - ./src/collect_static:/static
     ports:
-      - '80:80'
+      - '5000:80'
     depends_on:
       - django
-
