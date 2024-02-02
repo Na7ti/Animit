@@ -113,8 +113,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'common/static'),  
+    os.path.join(BASE_DIR, 'static'),   # アプリで管理しない静的なフォルダ
 )
+STATIC_ROOT = os.path.join(BASE_DIR, "collect_static") # staticファイルをまとめる場所
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

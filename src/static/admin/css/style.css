@@ -1,0 +1,63 @@
+h1 {
+  text-align: center;
+}
+
+div.reg {
+  background-color: #EEEEEE;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.message {
+  text-align: right;
+  margin-right: 20%;
+}
+
+table.reg_form {
+  width: 100%;
+  border-spacing: 10px 30px;
+  padding-left: 20px;
+}
+
+.btn {
+  color: #fff;
+  background-color: #000033;
+  font-size: 1.0em;
+  padding: 10px 30px;
+  margin-left: 80%;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #000099;
+}
+
+.header-space {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: rgb(255, 139, 197);
+  display: flex;
+  align-items: center;
+  /* 横幅中央揃え */
+  /* justify-content: center; */
+}
+
+.header-space h1 {
+  position: relative;
+  left: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+header {
+  /* headerの下の余白 */
+  padding-bottom: 10px;
+}
+
+main {
+  padding: 20px;
+}
