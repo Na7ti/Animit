@@ -29,12 +29,11 @@ services:
   web:
     image: nginx:1.18.0
     container_name: nginx
-    volumes:
+    volumes: 
       - ./web/conf:/etc/nginx/conf.d
       - ./web/uwsgi_params:/etc/nginx/uwsgi_params
-      - ./src/animit/static:/static
+      - ./src/collect_static:/static
     ports:
-      - '80:80'
+      - '5000:80'
     depends_on:
       - django
-
