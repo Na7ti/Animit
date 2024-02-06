@@ -19,5 +19,9 @@ jobs:      # 一つのワークフローの中に含まれる一つ一つの一�
         with:
           file: docker-compose.yml  # ターゲットとなる yaml ファイルを指定
       # この step 以下で docker compose が up された状態になっている
-      - name: Check Batch Runner
-        run: docker compose exec my-runner bash -c 'cat <(curl -s echo:5678) /the_message'
+      - name: Check db
+        run: docker compose exec db bash -c 'cat <(curl -s echo:5678) /the_message'
+      - name: Check django
+        run: docker compose exec djanog bash -c 'cat <(curl -s echo:5678) /the_message'
+      - name: Check web
+        run: docker compose exec web bash -c 'cat <(curl -s echo:5678) /the_message'
