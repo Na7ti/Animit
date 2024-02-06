@@ -1,0 +1,27 @@
+name: CI      # ワークフローの名前を定義しています。
+
+on:      # どのタイミングでこのワークフローが走るかが定義されています。
+  push:      # 何かしらのコミットがGitHubに追加された時
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:      # 一つのワークフローの中に含まれる一つ一つの一連の処理を定義します。
+  # イメージのビルド
+  build_image:
+    runs-on: ubuntu-latest      # どのような仮想環境でジョブの処理を動かすかを定義します。
+    steps:      # 具体的な一つ一つの処理を書いていきます。
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Docker Compose
+        uses: yu-ichiro/spin-up-docker-compose-action@v1
+        with:
+          file: docker-compose.yml  # ターゲットとなる yaml ファイルを指定
+      # この step 以下で docker compose が up された状態になっている
+      - name: Check db
+        run: docker compose exec db bash -c 'cat <(curl -s echo:5678) /the_message'
+      - name: Check django
+        run: docker compose exec djanog bash -c 'cat <(curl -s echo:5678) /the_message'
+      - name: Check web
+        run: docker compose exec web bash -c 'cat <(curl -s echo:5678) /the_message'
